@@ -102,34 +102,33 @@ window.PhoneBook = {
             event.preventDefault();
 
             PhoneBook.createEntry();
-
-
         });
 
-        //delegate is necessary here because the element .mark-done
-        // is not present in the page from the beginning, but injected later on.
         $("#contacts-table")
-            .delegate(".mark-done", "change", function (event) {
+            .delegate(".update-entry", "click", function (event) {
                 event.preventDefault();
 
                 //with .data we read values of attributes prefixed with "data-"
                 let entryId = $(this).data("id");
                 let first_name = $(this).is("first_name");
                 let last_name = $(this).is("last_name");
-                let phone_number = $(this).is("phone-number")
+                let phone_number = $(this).is("phone_number")
 
 
                 PhoneBook.updateEntry(entryId, first_name, last_name, phone_number);
             });
 
-        $("#tasks-table")
-            .delegate(".delete-task", "click", function (event) {
+        $("#contacts-table")
+            .delegate(".delete-entry", "click", function (event) {
                 event.preventDefault();
 
-                let taskID = $(this).data("id");
+                let entryId = $(this).data("id");
 
-                ToDoList.deleteTask(taskID);
+                PhoneBook.deleteEntry(entryId);
             })
     }
 
 }
+
+PhoneBook.getEntries();
+PhoneBook.bindEvents();
