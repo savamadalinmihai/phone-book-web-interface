@@ -102,6 +102,8 @@ window.PhoneBook = {
             event.preventDefault();
 
             PhoneBook.createEntry();
+
+
         });
 
         //delegate is necessary here because the element .mark-done
