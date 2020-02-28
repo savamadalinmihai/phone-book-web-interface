@@ -9,19 +9,7 @@
           integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
 </head>
 <body>
-
 <h1>Sava's Phonebook</h1>
-
-<h3>Add a new phonebook entry:</h3>
-<div id="create-new-entry">
-    <form id="new-entry-form">
-        <label for="first_name">First name:</label><input type="text" id="first_name" placeholder="John"/>
-        <label for="last_name"></label>Last Name:<input type="text" id="last_name" placeholder="Doe"/>
-        <label for="phone_number"></label>Phone number:<input type="text" id="phone_number" placeholder="0123 456 789"/>
-        <input type="submit" value="SAVE CONTACT"/>
-    </form>
-</div>
-
 <div>
     <table id="contacts-table">
         <thead>
@@ -29,7 +17,9 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Phone Number</th>
-            <th>Actions</th>
+            <th>EMAIL</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
         </tr>
         </thead>
         <tbody>
@@ -37,7 +27,43 @@
     </table>
 </div>
 
-<script src="js/lib.jquery-3.4.1.js"></script>
+<div>
+    <h3>Add a new phonebook entry:</h3>
+    <h1></h1>
+</div>
+
+<div id="create-new-entry">
+    <form id="new-entry-form">
+        <label for="first_name-field">First name:</label>
+        <input type="text" id="first_name-field" placeholder="John"/>
+        <label for="last_name-field">Last Name:</label>
+        <input type="text" id="last_name-field" placeholder="Doe"/>
+        <label for="phone_number-field">Phone number:</label>
+        <input type="text" id="phone_number-field" placeholder="0123 456 789"/>
+        <label for="email-field">Phone number:</label>
+        <input type="text" id="email-field" placeholder="abcd@provider.com"/>
+        <input type="submit" value="SAVE CONTACT"/>
+    </form>
+</div>
+
+<div id="description-for-edit">
+<h3>Enter what you want to modify in your contact here, then press the contact's edit button.</h3>
+</div>
+<div id="update-entry-form">
+    <form id="update-entry">
+        <label for="first_name-update-field">New first name:</label>
+        <input type="text" id="first_name-update-field" placeholder="John"/>
+        <label for="last_name-update-field">New last Name:</label>
+        <input type="text" id="last_name-update-field" placeholder="Doe"/>
+        <label for="phone_number-update-field">New phone number:</label>
+        <input type="text" id="phone_number-update-field" placeholder="0123 456 789"/>
+        <label for="email-update-field">Phone number:</label>
+        <input type="text" id="email-update-field" placeholder="abcd@provider.com"/>
+    </form>
+</div>
+
+
+<script src="js/lib/jquery-3.4.1.js"></script>
 <script src="js/contacts.js"></script>
 </body>
 </html>

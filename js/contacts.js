@@ -38,12 +38,14 @@ window.PhoneBook = {
     createEntry: function () {
         let first_nameValue = $("#first_name-field").val();
         let last_nameValue = $("#last_name-field").val();
-        let phone_numberValue = $("#phone_number-field").val()
+        let phone_numberValue = $("#phone_number-field").val();
+        let emailValue = $("#email-field").val();
 
         let requestBody = {
             first_name: first_nameValue,
             last_name: last_nameValue,
-            phone_number: phone_numberValue
+            phone_number: phone_numberValue,
+            email: emailValue
         };
 
         $.ajax({
@@ -56,15 +58,24 @@ window.PhoneBook = {
         })
     },
 
-    updateEntry: function (id, first_name, last_name, phone_number) {
+    updateEntry: function (id, first_name, last_name, phone_number, email) {
+
+        let idValue = $(this).data("id");
+        let first_nameValue = $("#first_name-update-field").val();
+        let last_nameValue = $("#last_name-update-field").val();
+        let phone_numberValue = $("#phone_number-update-field").val();
+        let emailValue = $("#email-update-field").val();
+
         let requestBody = {
-            first_name: first_name,
-            last_name: last_name,
-            phone_number: phone_number
+            id: idValue,
+            first_name: first_nameValue,
+            last_name: last_nameValue,
+            phone_number: phone_numberValue,
+            email: emailValue
         };
 
         $.ajax({
-            url: PhoneBook.API_BASE_URL,
+            url: PhoneBook.API_BASE_URL + "?id=" + id,
             method: "PUT",
             contentType: "application/json",
             data: JSON.stringify(requestBody)
@@ -79,13 +90,14 @@ window.PhoneBook = {
             <td>${contact.first_name}</td>
             <td>${contact.last_name}</td>
             <td>${contact.phone_number}</td>
+            <td>${contact.email}</td>
             <td><a href="#" data-id=${contact.id} class="update-entry">
             <i class="far fa-edit"></i>
             </a></td>
             <td><a href="#" data-id=${contact.id} class="delete-entry">
             <i class="fas fa-trash-alt"></i>
             </a></td>
-    <tr>`;
+    </tr>`;
     },
 
     displayEntries: function (contacts) {
@@ -108,14 +120,14 @@ window.PhoneBook = {
             .delegate(".update-entry", "click", function (event) {
                 event.preventDefault();
 
-                //with .data we read values of attributes prefixed with "data-"
-                let entryId = $(this).data("id");
-                let first_name = $(this).is("first_name");
-                let last_name = $(this).is("last_name");
-                let phone_number = $(this).is("phone_number")
+                let id = $(this).data("id");
+                let first_name = $("#first_name-update-field").val();
+                let last_name = $("#last_name-update-field").val();
+                let phone_number = $("#phone_number-update-field").val();
+                let email = $("#email-field").val();
 
 
-                PhoneBook.updateEntry(entryId, first_name, last_name, phone_number);
+                PhoneBook.updateEntry(id, first_name, last_name, phone_number, email);
             });
 
         $("#contacts-table")
@@ -125,10 +137,18 @@ window.PhoneBook = {
                 let entryId = $(this).data("id");
 
                 PhoneBook.deleteEntry(entryId);
-            })
+            });
+
+        $("#contacts-table").submit(function (event) {
+            event.preventDefault();
+
+            let first_name=$(this).data("first_name");
+
+            PhoneBook.getContactByName(first_name)
+        })
     }
 
-}
+};
 
 PhoneBook.getEntries();
 PhoneBook.bindEvents();

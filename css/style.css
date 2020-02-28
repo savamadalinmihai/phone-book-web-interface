@@ -7,6 +7,7 @@
 
 #contacts-table td, #contacts-table th {
     border: 1px solid #ddd;
+    text-align: center;
     padding: 8px;
 }
 
@@ -19,7 +20,7 @@
 #contacts-table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #00af93;
     color: white;
 }
@@ -29,5 +30,9 @@
 }
 
 .update-entry{
-    color: yellow;
+    color: #555555;
+}
+
+#description-for-edit{
+
 }
