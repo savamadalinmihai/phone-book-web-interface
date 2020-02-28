@@ -28,7 +28,7 @@ window.PhoneBook = {
 
     deleteEntry: function (id) {
         $.ajax({
-            url: PhoneBook.API_BASE_URL,
+            url: PhoneBook.API_BASE_URL + "?id=" + id,
             method: 'DELETE'
         }).done(function () {
             PhoneBook.getEntries();
@@ -76,15 +76,15 @@ window.PhoneBook = {
     getEntriesRow: function (contact) {
 
         return `<tr>
-    <td>${contact.first_name}</td>
-    <td>${contact.last_name}</td>
-    <td>${contact.phone_number}</td>
-    <td><a href="#" data-id=${contact.id} class="update-entry">
-    <i class="far fa-edit"></i>
-    </a></td>
-    <td><a href="#" data-id=${contact.id} class="delete-entry">
-    <i class="fas fa-trash-alt"></i>
-    </a></td>
+            <td>${contact.first_name}</td>
+            <td>${contact.last_name}</td>
+            <td>${contact.phone_number}</td>
+            <td><a href="#" data-id=${contact.id} class="update-entry">
+            <i class="far fa-edit"></i>
+            </a></td>
+            <td><a href="#" data-id=${contact.id} class="delete-entry">
+            <i class="fas fa-trash-alt"></i>
+            </a></td>
     <tr>`;
     },
 
