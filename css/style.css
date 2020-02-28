@@ -33,6 +33,22 @@
     color: #555555;
 }
 
-#description-for-edit{
+#create-new-entry{
+    text-align: center;
+}
 
+#description-for-create{
+    text-align: center;
+}
+
+#new-entry-form{
+    text-align: center;
+}
+
+#description-for-edit{
+    text-align: center;
+}
+
+#update-entry{
+    text-align: center;
 }
