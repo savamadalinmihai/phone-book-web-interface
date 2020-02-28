@@ -3,20 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Phonebook</title>
+
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+          integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
 </head>
 <body>
 
 <h1>Sava's Phonebook</h1>
 
 <h3>Add a new phonebook entry:</h3>
-<form id="new-entry-form">
-    <label for="first_name">First name:</label><input type="text" id="first_name" placeholder="John"/>
-    <label for="last_name"></label>Last Name:<input type="text" id="last_name" placeholder="Doe"/>
-    <label for="phone_number"></label>Phone number:<input type="text" id="phone_number" placeholder="0123 456 789"/>
+<div>
+    <form id="new-entry-form">
+        <label for="first_name">First name:</label><input type="text" id="first_name" placeholder="John"/>
+        <label for="last_name"></label>Last Name:<input type="text" id="last_name" placeholder="Doe"/>
+        <label for="phone_number"></label>Phone number:<input type="text" id="phone_number" placeholder="0123 456 789"/>
+    </form>
+</div>
 
-</form>
+<div>
+    <table id="contacts-table">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+    </table>
+</div>
 
-
-
+<script src="js/lib.jquery-3.4.1.js"></script>
+<script src="js/contacts.js"></script>
 </body>
 </html>

@@ -80,7 +80,7 @@ window.PhoneBook = {
     <td>${contact.last_name}</td>
     <td>${contact.phone_number}</td>
     <td><a href="#" data-id=${contact.id} class="update-entry">
-    <i class="fas fa-edit-alt"></i>
+    <i class="far fa-edit"></i>
     </a></td>
     <td><a href="#" data-id=${contact.id} class="delete-entry">
     <i class="fas fa-trash-alt"></i>
